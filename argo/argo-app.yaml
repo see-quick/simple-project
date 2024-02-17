@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: flask-hello-world
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/see-quick/simple-project' # replace this with your own simple project...
+    path: 'kubernetes' # this would be a directory where you have your Kubernetes files of your application, and you want them in sync
+    targetRevision: HEAD
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
