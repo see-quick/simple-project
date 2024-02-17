@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: flask-hello-world
-          image: hello-world-from-flask:latest
+          image: hello-world-from-flask:v2
           imagePullPolicy: IfNotPresent  # By default, Kubernetes will always try to pull an image with the tag latest.
           # By specifying an image pull policy of IfNotPresent, Kubernetes will only pull the image if it doesn't already exist locally.
           ports:
